@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mianxiangduixiangzuoye20200311
+
+namespace _2020316zuoy
 {
     class Program
     {
         static void Main(string[] args)
         {
-           jisuanqi ao = new jisuanqi();
-           Console.WriteLine("{0}", "请输入第一个数");
-            double a = Convert.ToDouble(Console.ReadLine());
+            jisuanqi ao = new jisuanqi();
+            Console.WriteLine("{0}", "请输入第一个字符串");
+            string a = Console.ReadLine();
             Console.WriteLine("{0}", "请输入需要进行的运算符号");
-           string c = Console.ReadLine();
+            string c = Console.ReadLine();
 
-            if (c != "+" && c != "-" && c != "*" && c != "/")
+            if (c != "+" && c != "-")
             {
                 Console.WriteLine("{0}", "输入的操作错误");
                 Console.WriteLine("{0}", "请重新输入运算符号");
@@ -24,41 +25,28 @@ namespace mianxiangduixiangzuoye20200311
             }
             else
             {
-                Console.WriteLine("{0}", "请输入第二个数");
-                double b = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("{0}", "请输入第二个字符串");
+                string b = Console.ReadLine();
                 ao.Equals(c, a, b);
             }
-           
-           Console.WriteLine("{0}", "请输入需要判断相等的第一个数");
-            double a1= Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("{0}", "请输入需要判断相等的第二个数");
-            double b1 = Convert.ToDouble(Console.ReadLine());
-            ao.Equals(a1, b1);
         }
     }
     class jisuanqi
     {
-        public void Equals(string c, double a, double b)
+        public void Equals(string c, string a, string b)
         {
             Console.WriteLine("{0}", "结果为：");
             if (c == "+")
-                Console.WriteLine("{0}",a+b); 
-           else  if (c == "-")
-                Console.WriteLine("{0}", a-b);
-            else  if (c == "/")
-                Console.WriteLine("{0}", a / b);
-           else  if (c == "*")
-                Console.WriteLine("{0}", a *b);
+                Console.WriteLine("{0}", a + b);
+            else if (c == "-")
+            {
+                foreach (char bb in b)
+                {
+                    a = a.Replace(bb, ' ');
+                }
+                Console.WriteLine("{0}", a);
 
-        }
-        public void Equals(double a, double b)
-        {
-
-            if (a == b)
-            { Console.WriteLine("{0}", "相等"); }
-            else
-            { Console.WriteLine("{0}", "不相等"); }
+            }
         }
     }
 }
-
